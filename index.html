@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2021職訓作業 CSS_彈性盒_棋盤</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      font-family: '標楷體';
+      box-sizing: border-box;
+    }
+
+    body {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+
+
+    /* 棋盤背景 ------------------------------------------------------ */
+    .background {
+      border: 1px solid #333;
+      padding: 35px 40px;
+      position: relative;
+    }
+
+    table {
+      width: 480px;
+      height: 540px;
+      border-collapse: collapse;
+      z-index: -1;
+    }
+
+    td {
+      width: 60px;
+      height: 60px;
+      border: 1px solid #333;
+      position: relative;
+    }
+
+    /* 棋盤上的斜線 */
+    .slash1 {
+      background:
+        linear-gradient(45deg, transparent 49.6%, #333 49.6%, #333 50.5%, transparent 50.5%);
+    }
+
+    .slash2 {
+      background:
+        linear-gradient(-45deg, transparent 49.6%, #333 49.6%, #333 50.5%, transparent 50.5%);
+    }
+
+    /* 兩側文字 */
+    .text1 {
+      font-size: 30px;
+      writing-mode: vertical-lr;
+      position: absolute;
+      left: -60px;
+      top: 0;
+    }
+
+    .text2 {
+      font-size: 30px;
+      writing-mode: vertical-lr;
+      position: absolute;
+      right: -60px;
+      top: 0;
+    }
+
+    /* 棋子 ------------------------------------------------------ */
+    .container {
+      width: 525px;
+      height: 585px;
+      position: absolute;
+    }
+
+    .row1 {
+      width: 525px;
+      height: 120px;
+      display: flex;
+      /* 均匀排列每个元素 */
+      justify-content: space-between;
+      align-items: start;
+      flex-wrap: wrap;
+    }
+
+    .row2 {
+      width: 525px;
+      height: 60px;
+      padding: 0 60px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .row3 {
+      width: 525px;
+      height: 180px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .row4 {
+      width: 525px;
+      height: 60px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .row5 {
+      width: 525px;
+      height: 120px;
+      padding: 0 60px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .circle {
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      border: 1px solid #333;
+      background: white;
+      font-size: 30px;
+      line-height: 40px;
+      text-align: center;
+    }
+
+    .red {
+      color: red;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="background">
+    <table>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td class="slash1"></td>
+        <td class="slash2"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td class="slash2"></td>
+        <td class="slash1"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td colspan="8">
+          <p style="font-size: 40px; line-height: 60px; text-align: center;">
+            楚河&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;漢界</p>
+        </td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td class="slash1"></td>
+        <td class="slash2"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td class="slash2"></td>
+        <td class="slash1"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+    </table>
+    <span class="text1">棋盤裡，車無輪馬無韁，叫聲將軍提防提防</span>
+    <span class="text2">圖畫裡，龍不吟虎不嘯，小小書僮可笑可笑</span>
+  </div>
+  </div>
+  <div class="container">
+    <div class="row1">
+      <div class="circle">車</div>
+      <div class="circle">馬</div>
+      <div class="circle">象</div>
+      <div class="circle">士</div>
+      <div class="circle">將</div>
+      <div class="circle">士</div>
+      <div class="circle">象</div>
+      <div class="circle">馬</div>
+      <div class="circle">車</div>
+    </div>
+    <div class="row2">
+      <div class="circle">包</div>
+      <div class="circle">包</div>
+    </div>
+    <div class="row3">
+      <div class="circle">卒</div>
+      <div class="circle">卒</div>
+      <div class="circle">卒</div>
+      <div class="circle">卒</div>
+      <div class="circle">卒</div>
+    </div>
+    <div class="row4 red">
+      <div class="circle">卒</div>
+      <div class="circle">卒</div>
+      <div class="circle">卒</div>
+      <div class="circle">卒</div>
+      <div class="circle">卒</div>
+    </div>
+    <div class="row5 red">
+      <div class="circle">包</div>
+      <div class="circle">包</div>
+    </div>
+    <div class="row4 red">
+      <div class="circle">車</div>
+      <div class="circle">馬</div>
+      <div class="circle">象</div>
+      <div class="circle">士</div>
+      <div class="circle">將</div>
+      <div class="circle">士</div>
+      <div class="circle">象</div>
+      <div class="circle">馬</div>
+      <div class="circle">車</div>
+    </div>
+  </div>
+
+</body>
+
+</html>
